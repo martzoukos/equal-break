@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Equal Break Test Page</title>
+	<style>
+		html,
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		body { 
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.3em;
+			padding: 1em;
+		}
+		.text {
+			background: #EFEFEF;
+			border: 1px solid #CCC;
+			margin-bottom: 1em;
+			padding: .5em;
+			margin: 2em 0;
+		}
+		.btn {
+			background: #EFEFEF;
+			box-shadow: 0 1px 2px #666;
+			border: 0;
+			cursor: pointer;
+			font-weight: bold;
+			padding: 1em 2em;
+		}
+		.btn:hover {
+			box-shadow: none;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Equal Break - A jQuery plugin that breaks a long string into multiple equal lines of text</h1>
+	
+	<div class="text" id="break">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, vero perspiciatis recusandae architecto sunt quis suscipit modi excepturi non asperiores impedit eveniet sint in! Totam, sapiente veritatis autem ullam dolorum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, vero perspiciatis recusandae architecto sunt quis suscipit modi excepturi non asperiores impedit eveniet sint in! Totam, sapiente veritatis autem ullam dolorum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, vero perspiciatis recusandae architecto sunt quis suscipit modi excepturi non asperiores impedit eveniet sint in! Totam, sapiente veritatis autem ullam dolorum.</div>
+
+	<button class="btn" data-lines="2">Break in 2 Lines</button>
+
+	<button class="btn" data-lines="4">Break in 4 Lines</button>
+
+	<button class="btn" data-lines="8">Break in 8 Lines</button>
+
+
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="jquery.equalBreak.js"></script>
+	<script>
+		$(function(){
+
+			var backup = $("#break").html();
+
+			//On button click, apply the plugin
+			$(".btn").click(function(){
+				var lines = $(this).data("lines");
+
+				//Restore text first
+				$("#break").html(backup);
+
+				//Apply the plugin
+				$("#break").equalBreak({
+					lines: lines
+				});
+
+			});
+
+		});
+	</script>
+
+
+</body>
+</html>
