@@ -32,7 +32,6 @@
 
     	for (i=0; i<words.length; i++) {
     		if ( letterCount >= breakPoints ) {
-    		console.log( result );
     			result 			+= "<br>";
     			breakPoints += breakIncr;
     		}
